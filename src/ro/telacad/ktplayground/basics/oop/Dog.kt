@@ -3,7 +3,7 @@ package ro.telacad.ktplayground.basics.oop
 class Dog private constructor(
     val name: String,
     val weight: Int,
-    val breed: String
+    val breed: Breed
 ) {
 
     fun bark() {
@@ -15,7 +15,7 @@ class Dog private constructor(
     }
 
     companion object Factory {
-        fun anInstance(name: String, weight: Int, breed: String): Dog {
+        fun anInstance(name: String, weight: Int, breed: Breed): Dog {
             return Dog(
                 name = name,
                 weight = weight,
