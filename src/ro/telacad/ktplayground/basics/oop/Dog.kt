@@ -1,7 +1,7 @@
 package ro.telacad.ktplayground.basics.oop
 
-class Dog(
-    var name: String,
+class Dog private constructor(
+    val name: String,
     val weight: Int,
     val breed: String
 ) {
@@ -13,18 +13,14 @@ class Dog(
             println("Noisy barking, something like ROUGH!!!!")
         }
     }
-}
 
-fun main() {
-    val dog = Dog(name = "Spark", weight = 19, breed = "Mixed")
-
-    dog.bark()
-
-    println("The dog name is: ${dog.name}")
-
-    dog.name = "Tom"
-
-    println("The dog name is: ${dog.name}")
-
-
+    companion object Factory {
+        fun anInstance(name: String, weight: Int, breed: String): Dog {
+            return Dog(
+                name = name,
+                weight = weight,
+                breed = breed
+            )
+        }
+    }
 }
