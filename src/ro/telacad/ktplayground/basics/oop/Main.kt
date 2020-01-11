@@ -31,4 +31,7 @@ fun main() {
     println(dog2.hashCode())
     println(dog1.toString())
 
+    val dog3 = dog1.copy(name = "Bucky")
+    println(dog3.toString())
+
 }
