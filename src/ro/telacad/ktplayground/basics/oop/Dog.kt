@@ -1,5 +1,7 @@
 package ro.telacad.ktplayground.basics.oop
 
+import java.lang.IllegalArgumentException
+
 class Dog private constructor(
     val name: String,
     val weight: Int,
@@ -7,6 +9,24 @@ class Dog private constructor(
 ) {
 
     lateinit var activities: Array<String>
+    val size: String
+        get() {
+            return DogClassifier.classify(this).value
+        }
+
+    var sex: Sex = Sex.N_A
+        set(value) {
+            if (value == Sex.N_A) {
+                throw IllegalArgumentException("The provided value is not valid!")
+            }
+            field = value
+        }
+        get() {
+            if (field == Sex.N_A) {
+                throw UninitializedPropertyAccessException("The field sex was not initialized")
+            }
+            return field
+        }
 
     init {
         // complex initializing code

@@ -8,10 +8,13 @@ fun main() {
 
     println("The dog name is: ${dog.name}")
 
-    val dogSize = DogClassifier.classify(dog)
+//    val dogSize = DogClassifier.classify(dog)
 
-    println("Dog ${dog.name} it's a ${dogSize.value} one!")
+    println("Dog ${dog.name} it's a ${dog.size} one!")
 
+//    dog.sex = Sex.N_A  An IllegalArgumentException is thrown!
+    dog.sex = Sex.M
+    println("Dog ${dog.name} has sex: ${dog.sex}")
 //    dog.activities = arrayOf("Walking", "Eating")
     println("Dog ${dog.name} is doing the following activities:")
     for (activity in dog.activities) {
