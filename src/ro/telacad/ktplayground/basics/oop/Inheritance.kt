@@ -1,5 +1,12 @@
 package ro.telacad.ktplayground.basics.oop
 
+import java.io.Serializable
+
+interface Moveable : Serializable {
+    val speed: Int
+
+    fun move()
+}
 
 /**
  * Superclass
@@ -22,7 +29,7 @@ abstract class Animal() {
  * We say that subclass extends the superclass
  * eg: Hippo (subclass) extends Animal (superclass)
  */
-class Hippo : Animal() {
+class Hippo(override val speed: Int = 20) : Animal(), Moveable {
     override val name = "Bobby"
     override val food = "Grass"
     override val habitat = "water"
@@ -38,17 +45,19 @@ class Hippo : Animal() {
     override fun sleep() {
         println("The Hippo $name is sleeping in $habitat")
     }
+
+    override fun move() {
+        println("The Hippo $name is moving with $speed km/h!")
+    }
 }
 
-abstract class WildCanine : Animal() {
+abstract class WildCanine : Animal(), Moveable {
     override val food = "Meat"
     override val habitat = "Forest"
 }
 
-class Fox : WildCanine() {
+class Fox(override val speed: Int = 40) : WildCanine() {
     override val name = "Foxy"
-//    override val food = "Meat"
-//    override val habitat = "Forest"
 
     override fun makeNoise() {
         println("Fox $name is making noise")
@@ -61,12 +70,14 @@ class Fox : WildCanine() {
     override fun sleep() {
         println("Fox $name is eating $food")
     }
+
+    override fun move() {
+        println("Fox $name is moving with $speed km/h")
+    }
 }
 
-class Wolf : WildCanine() {
+class Wolf(override val speed: Int = 40) : WildCanine() {
     override val name = "Teddy"
-//    override val food = "Meat"
-//    override val habitat = "Forest"
 
     override fun makeNoise() {
         println("Wolf $name is making noise")
@@ -79,6 +90,19 @@ class Wolf : WildCanine() {
     override fun sleep() {
         println("Wolf $name is eating $food")
     }
+
+    override fun move() {
+        println("Wolf $name is moving with $speed km/h")
+    }
+}
+
+class Vehicle(
+    val name: String, override val speed: Int = 100
+) : Moveable {
+    override fun move() {
+        println("The vehicle $name is moving $speed km/h!")
+    }
+
 }
 
 class Veterinary {
@@ -92,6 +116,7 @@ fun main() {
     val hippo = Hippo()
     val wolf = Wolf()
     val fox = Fox()
+    val vehicle = Vehicle("Mercedes")
 
     fox.eat()
     wolf.eat()
@@ -99,6 +124,12 @@ fun main() {
 //    val hippoAnimal: Animal = Hippo()
 //    hippo.makeNoise()
 //    hippoAnimal.makeNoise()
+
+    val moveableObjects = arrayOf(wolf, fox, hippo, vehicle)
+
+    for (moveable in moveableObjects) {
+        moveable.move()
+    }
 
     val animals: Array<Animal> = arrayOf(wolf, fox, hippo)
     val veterinary = Veterinary()
