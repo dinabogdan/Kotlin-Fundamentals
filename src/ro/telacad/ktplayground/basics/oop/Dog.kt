@@ -8,6 +8,19 @@ class Dog private constructor(
 
     lateinit var activities: Array<String>
 
+    init {
+        // complex initializing code
+
+        println("The dog with $name and $weight of breed $breed was created")
+
+        val size = DogClassifier.classify(this)
+        activities = when (size) {
+            Size.S -> arrayOf("walking", "playing")
+            Size.M -> arrayOf("walking")
+            Size.L -> arrayOf("walking", "eating a lot", "sleeping")
+        }
+    }
+
     fun bark() {
         if (weight < 20) {
             println("Small barking, something like yip!!")

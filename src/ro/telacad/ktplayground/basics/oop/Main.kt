@@ -12,10 +12,9 @@ fun main() {
 
     println("Dog ${dog.name} it's a ${dogSize.value} one!")
 
-    dog.activities = arrayOf("Walking", "Eating")
-
+//    dog.activities = arrayOf("Walking", "Eating")
     println("Dog ${dog.name} is doing the following activities:")
     for (activity in dog.activities) {
-        print("${activity} ")
+        print("$activity ")
     }
 }
