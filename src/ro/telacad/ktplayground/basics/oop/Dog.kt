@@ -6,6 +6,8 @@ class Dog private constructor(
     val breed: Breed
 ) {
 
+    lateinit var activities: Array<String>
+
     fun bark() {
         if (weight < 20) {
             println("Small barking, something like yip!!")
