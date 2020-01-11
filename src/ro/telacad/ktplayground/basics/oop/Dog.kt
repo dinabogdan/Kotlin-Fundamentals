@@ -2,7 +2,7 @@ package ro.telacad.ktplayground.basics.oop
 
 import java.lang.IllegalArgumentException
 
-class Dog private constructor(
+data class Dog private constructor(
     val name: String,
     val weight: Int,
     val breed: Breed

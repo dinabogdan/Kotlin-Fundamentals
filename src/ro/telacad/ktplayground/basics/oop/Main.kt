@@ -20,4 +20,15 @@ fun main() {
     for (activity in dog.activities) {
         print("$activity ")
     }
+
+    // ==
+
+    val dog1 = Dog.anInstance("Spark", 19, Breed.BULLDOG)
+    val dog2: Any = Dog.anInstance("Spark", 19, Breed.BULLDOG)
+
+    println(dog1 == dog2)
+    println(dog1.hashCode())
+    println(dog2.hashCode())
+    println(dog1.toString())
+
 }
