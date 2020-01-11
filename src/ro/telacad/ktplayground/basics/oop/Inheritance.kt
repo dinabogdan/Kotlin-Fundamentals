@@ -102,7 +102,6 @@ class Vehicle(
     override fun move() {
         println("The vehicle $name is moving $speed km/h!")
     }
-
 }
 
 class Veterinary {
@@ -127,9 +126,24 @@ fun main() {
 
     val moveableObjects = arrayOf(wolf, fox, hippo, vehicle)
 
+
+    // Smart cast operator
     for (moveable in moveableObjects) {
-        moveable.move()
+        when (moveable) {
+            is Animal -> {
+                moveable.move()
+                moveable.makeNoise()
+            }
+            is Vehicle -> moveable.move()
+        }
     }
+
+    //Explicit cast
+    // The following code will generate a ClassCastException
+//    for (moveable in moveableObjects) {
+//        (moveable as Animal).makeNoise()
+//        moveable.move()
+//    }
 
     val animals: Array<Animal> = arrayOf(wolf, fox, hippo)
     val veterinary = Veterinary()
