@@ -34,4 +34,10 @@ fun main() {
     val dog3 = dog1.copy(name = "Bucky")
     println(dog3.toString())
 
+    println(dog1.component1())
+
+    val (name, weight, breed) = dog1
+
+    println("Name: $name, Weight: $weight, Breed: $breed")
+
 }

@@ -2,9 +2,11 @@ package ro.telacad.ktplayground.basics.oop
 
 import java.lang.IllegalArgumentException
 
+typealias Kg = Int
+
 data class Dog private constructor(
     val name: String,
-    val weight: Int,
+    val weight: Kg,
     val breed: Breed
 ) {
 
