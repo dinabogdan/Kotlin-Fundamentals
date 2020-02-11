@@ -12,7 +12,7 @@ data class Cat(
     val color: String
 )
 
-class Cage<T>(
+data class Cage<T>(
     val animal: T,
     val size: Double
 )
