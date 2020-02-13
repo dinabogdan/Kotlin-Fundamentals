@@ -6,9 +6,7 @@ data class Dog(
     val id: Int,
     val name: String,
     val color: String
-) : Animal {
-
-}
+) : Animal
 
 data class Cat(
     val id: Int,
