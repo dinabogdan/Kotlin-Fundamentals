@@ -1,7 +1,7 @@
 package ro.telacad.ktplayground.basics.generics
 
 // top-level generic function
-fun <T> aNewCage(animal: T, size: Double): Cage<T> {
+fun <T : Animal> aNewCage(animal: T, size: Double): Cage<T> {
     return Cage(animal, size)
 }
 
