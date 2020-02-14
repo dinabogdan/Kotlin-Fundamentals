@@ -1,4 +1,4 @@
-package ro.telacad.ktplayground.basics2
+package ro.telacad.ktplayground.basics
 
 // lowerCamelCase
 fun sum(a: Int, b: Int) = a + b
